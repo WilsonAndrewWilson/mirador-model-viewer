@@ -5,7 +5,7 @@ import {
 } from 'mirador/dist/es/src/state/selectors';
 
 import MiradorModelViewer from './MiradorModelViewer'
-//I thi
+
 const mapStateToProps = (state, { canvasId,windowId }) => {
   const manifestoInstance = getManifestoInstance(state, { windowId });
   return {
