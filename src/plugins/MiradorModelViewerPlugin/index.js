@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import ModelViewer from '@google/model-viewer';
 import {
-  getCurrentCanvas,getManifestTitle, getManifestoInstance, getVisibleCanvasAudioResources, getVisibleCanvasVideoResources, getWindow,getManifestStatus
+  getCurrentCanvas,getManifestTitle, getManifestoInstance, getVisibleCanvasAudioResources, getVisibleCanvasVideoResources, getWindow,getManifestStatus,getWindowViewType
 } from 'mirador/dist/es/src/state/selectors';
 
 import MiradorModelViewer from './MiradorModelViewer'
-
+//I thi
 const mapStateToProps = (state, { canvasId,windowId }) => {
   const manifestoInstance = getManifestoInstance(state, { windowId });
   return {
@@ -15,7 +15,8 @@ const mapStateToProps = (state, { canvasId,windowId }) => {
     videoResources: getVisibleCanvasVideoResources(state, { windowId }) || [],
     isFetching:getManifestStatus(state, { windowId }).isFetching,
     title: getManifestTitle(state, { canvasId, windowId }),
-    canvas: getCurrentCanvas(state, { canvasId, windowId })
+    canvas: getCurrentCanvas(state, { canvasId, windowId }),
+    view: getWindowViewType(state, { windowId }),
   };
 };
 
