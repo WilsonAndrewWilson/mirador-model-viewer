@@ -1,7 +1,7 @@
 {
-  "name": "mirador-workshop",
+  "name": "mirador-model-viewer",
   "version": "0.0.0",
-  "description": "A workshop on working with Mirador",
+  "description": "Plugin incorporating google model-viewer into mirador",
   "private": true,
   "scripts": {
     "build": "webpack --env=production",
