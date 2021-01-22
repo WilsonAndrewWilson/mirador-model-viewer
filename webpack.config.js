@@ -29,7 +29,7 @@ module.exports = function(env, argv) {
     output: {
       filename: 'main.js',
       path: path.resolve(__dirname, 'dist'),
-      publicPath: '/dist/', //this would need to be something like /serch/js/mirador-3-3d
+      publicPath: '/dist/', //this would need to be something like /saerch/js/mirador-3-3d or wherever your deployed js directory is
     },
     plugins: [
       new CleanWebpackPlugin(),
