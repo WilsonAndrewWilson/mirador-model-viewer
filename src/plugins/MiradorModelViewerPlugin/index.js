@@ -1,22 +1,32 @@
 import React, { Component } from 'react';
 import ModelViewer from '@google/model-viewer';
 import {
-  getCurrentCanvas,getManifestTitle, getManifestoInstance, getVisibleCanvasAudioResources, getVisibleCanvasVideoResources, getWindow,getManifestStatus,getWindowViewType
+  getCurrentCanvas, getManifestoInstance,
 } from 'mirador/dist/es/src/state/selectors';
+import flattenDeep from 'lodash/flattenDeep';
+import flatten from 'lodash/flatten';
 
 import MiradorModelViewer from './MiradorModelViewer'
 
-const mapStateToProps = (state, { canvasId,windowId }) => {
+// Define this like a selector so that this content can be passed directly into the component as a prop
+function threeDResources(canvas) {
+  if (canvas != undefined) {
+    const resources = flattenDeep([
+      canvas.getContent().map(i => i.getBody()),
+    ]);
+    return flatten(resources.filter((resource) => resource.getProperty('type') === 'Model'));
+  }
+  else {
+    return [];
+  }
+}
+
+// Only add the necessary additional mapStateToProps
+const mapStateToProps = (state, { canvasId, windowId }) => {
   const manifestoInstance = getManifestoInstance(state, { windowId });
+  const canvas = getCurrentCanvas(state, { canvasId, windowId });
   return {
-    audioResources: getVisibleCanvasAudioResources(state, { windowId }) || [],
-    isCollection: manifestoInstance && manifestoInstance.isCollection(),
-    isCollectionDialogVisible: getWindow(state, { windowId }).collectionDialogOn,
-    videoResources: getVisibleCanvasVideoResources(state, { windowId }) || [],
-    isFetching:getManifestStatus(state, { windowId }).isFetching,
-    title: getManifestTitle(state, { canvasId, windowId }),
-    canvas: getCurrentCanvas(state, { canvasId, windowId }),
-    view: getWindowViewType(state, { windowId }),
+    threeDResources: threeDResources(canvas),
   };
 };
 
