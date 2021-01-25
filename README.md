@@ -81,7 +81,7 @@ export default {
 
 ````
 
-### Example of options when set at initialisation
+### Example of "per window" options when set at initialisation
 ````
 <script type="text/javascript">
       var sidebar=true;
