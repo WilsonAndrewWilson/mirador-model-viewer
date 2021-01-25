@@ -1,4 +1,4 @@
-import React, { Component, lazy, Suspense } from 'react';
+import React, { Component} from 'react';
 import ModelViewer from '@google/model-viewer';
 
 class MiradorModelViewer extends Component {
@@ -10,17 +10,22 @@ class MiradorModelViewer extends Component {
     const styles = {
       width: "100%",
       height: "100%",
-      background: "black"
+      background: this.props.background,
     };
-
+    
+    //Model viewer uses css custom properties. This is to workaround using them "inline"
+    const progressBarHeight={ "--progress-bar-height": this.props.progressBarHeight };
+    const progressBarColor={ "--progress-bar-color": this.props.progressBarColor };
     return (
       <model-viewer
-        style={{ background: styles.background, width: styles.width, height: styles.height }}
+        style={{...styles,...progressBarHeight,...progressBarColor}}
         src={threeDResources[0].id}
         alt={this.props.title}
         auto-rotate camera-controls>
       </model-viewer>
     );
+
+    
   }
 
   render() {

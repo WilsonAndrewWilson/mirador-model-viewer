@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import ModelViewer from '@google/model-viewer';
 import {
-  getCurrentCanvas, getManifestoInstance,
+  getCurrentCanvas, getManifestTitle,getWindowConfig
 } from 'mirador/dist/es/src/state/selectors';
 import flattenDeep from 'lodash/flattenDeep';
 import flatten from 'lodash/flatten';
@@ -22,11 +22,14 @@ function threeDResources(canvas) {
 }
 
 // Only add the necessary additional mapStateToProps
-const mapStateToProps = (state, { canvasId, windowId }) => {
-  const manifestoInstance = getManifestoInstance(state, { windowId });
+  const mapStateToProps = (state, { canvasId, windowId }) => {
   const canvas = getCurrentCanvas(state, { canvasId, windowId });
   return {
     threeDResources: threeDResources(canvas),
+    title: getManifestTitle(state, { canvasId, windowId }),
+    background: getWindowConfig(state, { windowId }).modelViewerBackground || "#000000",
+    progressBarHeight: getWindowConfig(state, { windowId }).modelViewerProgressHeight || "5px",
+    progressBarColor: getWindowConfig(state, { windowId }).modelViewerProgressColor || "rgba(0, 0, 0, 0.4)",
   };
 };
 
