@@ -50,18 +50,38 @@ Once the plugin has been tested more, the package may end up in NPM making this 
     Mirador.viewer(config, plugins);
 
     ````
-5. Build/compile your Mirador instance using whatever build tool you usually use (Webpack, gukp grint,make, etc)
+5. Build/compile your Mirador instance using whatever build tool you usually use (Webpack, gulp grunt,make, etc)
 6. Set any options you want to set for the plugin in the initialisation file for Mirador.
 
 ## Model Viewer options
-There are a few options you can set when you initialise Mirador. These are optional and will default to Model Viewer defaults if not set. These are set at the Window-level in your Mirador initialisation.
+There are a few options you can set when you initialise Mirador. These are optional and will default to Model Viewer defaults if not set. These are set at the Window-level in your Mirador instance and can be set as default window options in your general config, or "per-window" when initalising.
 | Option | Description | Default
 | ----------- | ----------- | -----------
 | modelViewerBackground | The background colour, any standard css colour value is accepted (rgb,#,text etc) | #000000
 | modelViewerProgressHeight | The height,in pixels, of the loading progress bar. Ensure "px" is added to the value. | 5px
 | modelViewerProgressColor | The color of the progress bar, any standard css colour value is accepted (rgb,#,text etc)  | rgba(0, 0, 0, 0.4)
 
-### Example of options
+### Example of default options when set in your mirador config
+
+````
+export default {
+    id: 'mirador',
+       displayAllAnnotations: false,
+       window: {
+          sideBarOpenByDefault: sidebar,
+          imageToolsEnabled: true,
+          imageToolsOpen: false,
+          modelViewerBackground :"#000000", 
+          modelViewerProgressHeight:"5px",
+          modelViewerProgressColor:"#fc03be"
+       },
+  windows: wins,
+  catalog: mans
+  };
+
+````
+
+### Example of "per window" options when set at initialisation
 ````
 <script type="text/javascript">
       var sidebar=true;
@@ -74,21 +94,21 @@ There are a few options you can set when you initialise Mirador. These are optio
              ];
              
              var mans=[  
-             {manifestId: "  https://preview.iiif.io/cookbook/master/recipe/0003-mvm-video/manifest.json", provider: "Video"},           
+              {manifestId: "  https://preview.iiif.io/cookbook/master/recipe/0003-mvm-video/manifest.json", provider: "Video"},           
               {manifestId: "https://collections.st-andrews.ac.uk/1001108/manifest", provider: "3D item"},
               {manifestId: "https://collections.st-andrews.ac.uk/762345/manifest", provider: "3D item"},
               {manifestId: "https://collections.st-andrews.ac.uk/38099/manifest", provider: "Image"}
              ];
           </script>
 ````
-<a name="threed"></a>
+
 ## 3D Object support
 Model Viewer accepts any GLTF or Binary GLTF (GLB) file.   It is recommended to use GLB otherwise you need to ensure that all the assets(texture,model etc) are in the same directory of the GLTF file which can be tricky if using a CMS/AMS to deliver content.
 It is recommended that the objects are around 10MB maximum for loading.  There are some tools that can help converting and reducing the objects:
 
 [Obj2Gltf](https://github.com/CesiumGS/obj2gltf) for converting OBJ files/assets to GLTF/GLB.  It is recommended to use the `--unlit` parameter when converting. To convert directly to GLB, use the `-b` parameter.
 
-[Gltf pipeline](https://github.com/CesiumGS/gltf-pipeline) for reducing the file size by using Draco compression if you object is still over 10MB.  Using this tool will require some experimentation with the draco compression objects to avoid too much quality reduction.  These settings have been known to make a good compromise :
+[Gltf pipeline](https://github.com/CesiumGS/gltf-pipeline) for reducing the file size by using Draco compression if your object is still over 10MB.  Using this tool will require some experimentation with the draco compression parameters to avoid too much quality reduction.  These settings have been known to make a good compromise :
 ````
 gltf-pipeline -i input.glb -o output.glb -d -b --draco.compressionLevel 1 --draco.quantizePositionBits 20 --draco.quantizeNormalBits 15 --draco.quantizeTexcoordBits 20 --draco.quantizeColorBits 15 --draco.quantizeGenericBits 20
 ````
@@ -99,6 +119,8 @@ gltf-pipeline -i input.glb -o output.glb -d -b --draco.compressionLevel 1 --drac
 - [https://collections.st-andrews.ac.uk/1001108/manifest](https://collections.st-andrews.ac.uk/1001108/manifest)
 - [https://collections.st-andrews.ac.uk/762339/manifest](https://collections.st-andrews.ac.uk/762339/manifest)
 - [https://collections.st-andrews.ac.uk/762345/manifest](https://collections.st-andrews.ac.uk/762345/manifest)
+- [https://iiif-3d-manifests.netlify.app/collection/gltf/flight-helmet/index.json](https://iiif-3d-manifests.netlify.app/collection/gltf/flight-helmet/index.json)
+- [https://bl-3d.netlify.app/collection/jane-austen-writing-desk/index.json](https://bl-3d.netlify.app/collection/jane-austen-writing-desk/index.json)
 
 
 ## Where else can I use my 3D Manifests?
