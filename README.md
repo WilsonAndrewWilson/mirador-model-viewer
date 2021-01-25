@@ -54,14 +54,34 @@ Once the plugin has been tested more, the package may end up in NPM making this 
 6. Set any options you want to set for the plugin in the initialisation file for Mirador.
 
 ## Model Viewer options
-There are a few options you can set when you initialise Mirador. These are optional and will default to Model Viewer defaults if not set. These are set at the Window-level in your Mirador initialisation.
+There are a few options you can set when you initialise Mirador. These are optional and will default to Model Viewer defaults if not set. These are set at the Window-level in your Mirador instance and can be set as default window options in your general config, or "per-window" when initalising.
 | Option | Description | Default
 | ----------- | ----------- | -----------
 | modelViewerBackground | The background colour, any standard css colour value is accepted (rgb,#,text etc) | #000000
 | modelViewerProgressHeight | The height,in pixels, of the loading progress bar. Ensure "px" is added to the value. | 5px
 | modelViewerProgressColor | The color of the progress bar, any standard css colour value is accepted (rgb,#,text etc)  | rgba(0, 0, 0, 0.4)
 
-### Example of options
+### Example of default options when set in your mirador config
+
+````
+export default {
+    id: 'mirador',
+       displayAllAnnotations: false,
+       window: {
+          sideBarOpenByDefault: sidebar,
+          imageToolsEnabled: true,
+          imageToolsOpen: false,
+          modelViewerBackground :"#000000", 
+          modelViewerProgressHeight:"5px",
+          modelViewerProgressColor:"#fc03be"
+       },
+  windows: wins,
+  catalog: mans
+  };
+
+````
+
+### Example of options when set at initialisation
 ````
 <script type="text/javascript">
       var sidebar=true;
