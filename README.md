@@ -99,6 +99,8 @@ gltf-pipeline -i input.glb -o output.glb -d -b --draco.compressionLevel 1 --drac
 - [https://collections.st-andrews.ac.uk/1001108/manifest](https://collections.st-andrews.ac.uk/1001108/manifest)
 - [https://collections.st-andrews.ac.uk/762339/manifest](https://collections.st-andrews.ac.uk/762339/manifest)
 - [https://collections.st-andrews.ac.uk/762345/manifest](https://collections.st-andrews.ac.uk/762345/manifest)
+- [https://iiif-3d-manifests.netlify.app/collection/gltf/flight-helmet/index.json](https://iiif-3d-manifests.netlify.app/collection/gltf/flight-helmet/index.json)
+- [https://bl-3d.netlify.app/collection/jane-austen-writing-desk/index.json](https://bl-3d.netlify.app/collection/jane-austen-writing-desk/index.json)
 
 
 ## Where else can I use my 3D Manifests?
