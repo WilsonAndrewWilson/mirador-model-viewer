@@ -8,6 +8,7 @@
 - [Example manifests](#example-manifests)
 - [Where else can I use my 3D Manifests?](#where-else-can-i-use-my-3d-manifests)
 
+![screenshot](https://i.imgur.com/t0PxMpV.jpeg)
 
 ## About
 Incorporating [Google Model Viewer](https://model-viewer.dev) into Mirador for viewing manifests that include 3D objects. Only formats supported by model-viewer will work with this plugin (GLTF, or their binary equivalent : GLB. See the [3D object support section](#3d-object-support).
