@@ -9,7 +9,6 @@ export default {
           modelViewerProgressHeight:"5px",
           modelViewerProgressColor:"#fc03be",
           modelViewerAutoRotate: true,
-          modelViewerCameraControls:true
       },
   windows: wins,
   catalog: mans
