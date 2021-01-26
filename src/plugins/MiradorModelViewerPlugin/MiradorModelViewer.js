@@ -16,12 +16,14 @@ class MiradorModelViewer extends Component {
     //Model viewer uses css custom properties. This is to workaround using them "inline"
     const progressBarHeight={ "--progress-bar-height": this.props.progressBarHeight };
     const progressBarColor={ "--progress-bar-color": this.props.progressBarColor };
+    console.log(this.props.autoRotate);
     return (
       <model-viewer
         style={{...styles,...progressBarHeight,...progressBarColor}}
         src={threeDResources[0].id}
-        alt={this.props.title}
-        auto-rotate camera-controls>
+        alt={this.props.title}    
+        auto-rotate={this.props.autoRotate?true : undefined  }
+        camera-controls>
       </model-viewer>
     );
 

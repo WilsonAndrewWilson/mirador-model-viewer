@@ -7,8 +7,10 @@ export default {
           imageToolsOpen: false,
           modelViewerBackground :"#000000", 
           modelViewerProgressHeight:"5px",
-          modelViewerProgressColor:"#fc03be"
-       },
+          modelViewerProgressColor:"#fc03be",
+          modelViewerAutoRotate: true,
+          modelViewerCameraControls:true
+      },
   windows: wins,
   catalog: mans
   };

@@ -30,6 +30,7 @@ function threeDResources(canvas) {
     background: getWindowConfig(state, { windowId }).modelViewerBackground || "#000000",
     progressBarHeight: getWindowConfig(state, { windowId }).modelViewerProgressHeight || "5px",
     progressBarColor: getWindowConfig(state, { windowId }).modelViewerProgressColor || "rgba(0, 0, 0, 0.4)",
+    autoRotate: getWindowConfig(state, { windowId }).modelViewerAutoRotate || false,
   };
 };
 
