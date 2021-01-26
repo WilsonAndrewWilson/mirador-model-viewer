@@ -6,6 +6,7 @@
 - [Model Viewer options](#model-viewer-options)
 - [3D object support](#3d-object-support)
 - [Example manifests](#example-manifests)
+- [Live demo](#live-demo)
 - [Where else can I use my 3D Manifests?](#where-else-can-i-use-my-3d-manifests)
 
 ![screenshot](https://i.imgur.com/t0PxMpV.jpeg)
@@ -121,6 +122,11 @@ gltf-pipeline -i input.glb -o output.glb -d -b --draco.compressionLevel 1 --drac
 - [https://collections.st-andrews.ac.uk/762345/manifest](https://collections.st-andrews.ac.uk/762345/manifest)
 - [https://iiif-3d-manifests.netlify.app/collection/gltf/flight-helmet/index.json](https://iiif-3d-manifests.netlify.app/collection/gltf/flight-helmet/index.json)
 - [https://bl-3d.netlify.app/collection/jane-austen-writing-desk/index.json](https://bl-3d.netlify.app/collection/jane-austen-writing-desk/index.json)
+
+## Live demo
+
+- [Single 3D object] (https://collections.st-andrews.ac.uk/workspace/individual/1001108)
+- [Multiple types of objects) (https://collections.st-andrews.ac.uk/workspace/selection/17330830)
 
 
 ## Where else can I use my 3D Manifests?
