@@ -125,8 +125,8 @@ gltf-pipeline -i input.glb -o output.glb -d -b --draco.compressionLevel 1 --drac
 
 ## Live demo
 
-- [Single 3D object] (https://collections.st-andrews.ac.uk/workspace/individual/1001108)
-- [Multiple types of objects) (https://collections.st-andrews.ac.uk/workspace/selection/17330830)
+- [Single 3D object](https://collections.st-andrews.ac.uk/workspace/individual/1001108)
+- [Multiple types of objects)(https://collections.st-andrews.ac.uk/workspace/selection/17330830)
 
 
 ## Where else can I use my 3D Manifests?
