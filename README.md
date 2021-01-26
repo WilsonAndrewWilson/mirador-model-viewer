@@ -61,6 +61,7 @@ There are a few options you can set when you initialise Mirador. These are optio
 | modelViewerBackground | The background colour, any standard css colour value is accepted (rgb,#,text etc) | #000000
 | modelViewerProgressHeight | The height,in pixels, of the loading progress bar. Ensure "px" is added to the value. | 5px
 | modelViewerProgressColor | The color of the progress bar, any standard css colour value is accepted (rgb,#,text etc)  | rgba(0, 0, 0, 0.4)
+| modelViewerAutoRotate | Whether the object automatically rotates when you are not interacting with it  | false
 
 ### Example of default options when set in your mirador config
 
@@ -74,7 +75,8 @@ export default {
           imageToolsOpen: false,
           modelViewerBackground :"#000000", 
           modelViewerProgressHeight:"5px",
-          modelViewerProgressColor:"#fc03be"
+          modelViewerProgressColor:"#fc03be",
+          modelViewerAutoRotate:true,   
        },
   windows: wins,
   catalog: mans
@@ -91,6 +93,7 @@ export default {
                 modelViewerBackground :"#000000", 
                 modelViewerProgressHeight:"10px",
                 modelViewerProgressColor:"red",
+                modelViewerAutoRotate:false,
                 manifestId: "https://collections.st-andrews.ac.uk/1001108/manifest"}      
              ];
              
